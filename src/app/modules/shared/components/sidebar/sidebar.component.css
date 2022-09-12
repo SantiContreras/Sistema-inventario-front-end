@@ -1,0 +1,51 @@
+.dashboard-container{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.toolbar{
+    height: 45px;
+    background-color: #30455B;
+}
+
+.h1-app-name{
+    margin-left: 8px;
+    
+}
+
+ul li {
+    list-style: none;
+}
+
+.card-profile{
+    padding:  0 20px 20px 20px;
+    text-align: center;
+    
+}
+
+.header{
+    margin-top: 20px;
+}
+
+.sidenav-container{
+    flex: 1;
+    background-color: #06111C;
+}
+
+.isMobile .sidenav-container {
+    flex: 1 0 auto;
+}
+
+.icono{
+    margin-right: 10px;
+}
+
+.is-mobile .dashboard-toolbar{
+    position: fixed;
+    z-index: 2;
+}

@@ -10,7 +10,9 @@
 
 .toolbar{
     height: 45px;
-    background-color: #30455B;
+    background-color: black;
+    color: aliceblue;
+    
 }
 
 .h1-app-name{
@@ -34,7 +36,8 @@ ul li {
 
 .sidenav-container{
     flex: 1;
-    background-color: #06111C;
+    background-color: antiquewhite;
+    color: aliceblue;
 }
 
 .isMobile .sidenav-container {
@@ -49,3 +52,4 @@ ul li {
     position: fixed;
     z-index: 2;
 }
+

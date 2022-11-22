@@ -22,4 +22,10 @@ export class CategoryService {
     const EndPoint = `${url_base}/categories`;
     return this.http.post(EndPoint,body);
   }
+
+  updateCategory(body:any , id:any){
+    const EndPoint = `${url_base}/categories/${id}`;
+    return this.http.put(EndPoint,body);
+
+  }
 }

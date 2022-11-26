@@ -1,0 +1,8 @@
+<h4 mat-dialog-title>Confirmacion de eliminacion</h4>
+<div mat-dialog-content>
+    <p>Estas seguro de eliminar?</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">NO</button>
+    <button mat-button (click)="delete()" cdkFocusInitial>SI</button>
+</div>

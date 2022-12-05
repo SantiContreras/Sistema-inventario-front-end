@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginatedTabHeader } from '@angular/material/tabs/paginated-tab-header';
 import { Observable } from 'rxjs';
 import { ConfirmComponent } from 'src/app/modules/shared/components/confirm/confirm.component';
 import { CategoryService } from 'src/app/modules/shared/services/category.service';
@@ -23,6 +25,8 @@ export class CategoryComponent implements OnInit {
 
     displayedColumns:string[]=['id','descripcion','name','actions']
     dataSource = new MatTableDataSource<CategoryElement>();
+    @ViewChild(MatPaginator)
+    paginator! :MatPaginator;
 
   getCategories(){
     this.categoryService.getCategories()
@@ -43,6 +47,7 @@ export class CategoryComponent implements OnInit {
       });
 
       this.dataSource = new MatTableDataSource<CategoryElement>(dataCategory);
+      this.dataSource.paginator=this.paginator;
     }
 
   }
@@ -101,6 +106,18 @@ export class CategoryComponent implements OnInit {
        this.openSnackBar("Se produjo un error al ELIMINAR","Error")
      }
    });
+  }
+
+  buscar( termino: string){
+
+    if( termino.length === 0){
+      return this.getCategories();
+    }
+
+    this.categoryService.getCategoryById(termino)
+            .subscribe( (resp: any) => {
+              this.processCategoriesResponse(resp);
+            })
   }
 
 }

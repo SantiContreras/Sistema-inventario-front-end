@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
   menuNav =[
     {name:"home",route:"home",icon:"home"},
     {name:"categorias",route:"category",icon:"category"},
-    {name:"productos",route:"produc",icon:"production_quantity_limits"},
+    {name:"productos",route:"product",icon:"production_quantity_limits"},
   ]
 
   constructor(media:MediaMatcher) {

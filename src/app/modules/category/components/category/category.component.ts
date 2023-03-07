@@ -40,7 +40,7 @@ export class CategoryComponent implements OnInit {
 
     const dataCategory : CategoryElement[] = [];
     if (resp.metadata[0].code == "001" ) {
-      let listCategory = resp.categoryresponse.categorys;
+      let listCategory = resp.categoryResponse.category;
 
       listCategory.forEach((element: CategoryElement) => {
         dataCategory.push(element)
@@ -95,7 +95,7 @@ export class CategoryComponent implements OnInit {
   delete(id:any) {
     const dialogRef = this.dialog.open( ConfirmComponent, { 
       width: '750px',
-      data : { id:id }
+      data : { id:id, module:"category" }
    });
 
    dialogRef.afterClosed().subscribe((result:any) => {

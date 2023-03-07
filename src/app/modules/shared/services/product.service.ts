@@ -24,4 +24,28 @@ export class ProductService {
     return this.http.get(EndPoint);
 
   }
+
+  /**
+   * metodo para guardar un producto
+   */
+
+  saveProduct( body: any){
+    const EndPoint = `${url_base}/products`;
+    return this.http.post(EndPoint , body);
+
+  }
+
+
+  updateProduct( body: any ,  id:any){
+    const EndPoint = `${url_base}/products/${id}`;
+    return this.http.put(EndPoint , body);
+
+  }
+
+  deleteProduct(id:any){
+
+    const EndPoint = `${url_base}/products/${id}`;
+    return this.http.delete(EndPoint );
+
+  }
 }

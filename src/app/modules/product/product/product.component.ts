@@ -114,6 +114,15 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  buscar(nombre: any){
+    if(nombre.length === 0){
+      return this.getProduct();
+    }
+    this.productServices.getProductByName(nombre).subscribe((resp:any)=>{
+      this.processProductResponse(resp);
+    });
+  }
+
 
 
 

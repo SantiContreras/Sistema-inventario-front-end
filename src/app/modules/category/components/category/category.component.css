@@ -23,6 +23,23 @@ ul li{
 
 table {
  width: 100%;
+ 
+ 
+}
+
+table  th {
+    background-color: #2C3E50 ;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+table td{
+    
+    color: black;
+}
+
+tr:nth-child(odd){
+    background-color: #ABB2B9;
 }
 
 mat-form-field {

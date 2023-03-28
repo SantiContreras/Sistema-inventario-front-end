@@ -1,5 +1,6 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import {KeycloakService} from 'keycloak-angular'
 
 @Component({
   selector: 'app-sidebar',
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   mobileQuery:MediaQueryList;
+  username:any
 
   menuNav =[
     {name:"home",route:"home",icon:"home"},
@@ -16,12 +18,17 @@ export class SidebarComponent implements OnInit {
     {name:"productos",route:"product",icon:"production_quantity_limits"},
   ]
 
-  constructor(media:MediaMatcher) {
+  constructor(media:MediaMatcher, private keyloackService : KeycloakService) {
     this.mobileQuery = media.matchMedia('(max-width:600px)');
    }
 
   ngOnInit(): void {
+    this.username = this.keyloackService.getUsername();
     
+  }
+
+  cerrarsesio(){
+      this.keyloackService.logout();
   }
 
 }

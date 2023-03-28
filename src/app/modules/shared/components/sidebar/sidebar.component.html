@@ -16,7 +16,7 @@
                         <mat-icon>person_outline</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
+                        <button mat-menu-item (click)="cerrarsesio()">
                             <mat-icon>exit_to_app</mat-icon>
                             cerrar sesion
                         </button>
@@ -35,8 +35,8 @@
                 <!--profile-->
                 <div class="card-profile">
                     <div class="header">
-                        <h2>Santi Contreras</h2>
-                        <h4>santiagolasconi@gmail.com</h4>
+                        <h2>{{username}}</h2>
+                        
                     </div>
                 </div>
                 <mat-divider></mat-divider>

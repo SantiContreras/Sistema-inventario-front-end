@@ -7,6 +7,7 @@ import { MatPaginatedTabHeader } from '@angular/material/tabs/paginated-tab-head
 import { Observable } from 'rxjs';
 import { ConfirmComponent } from 'src/app/modules/shared/components/confirm/confirm.component';
 import { CategoryService } from 'src/app/modules/shared/services/category.service';
+import { UtilService } from 'src/app/modules/shered/services/util.service';
 import { NewCategoryComponent } from '../new-category/new-category.component';
 
 @Component({
@@ -15,12 +16,14 @@ import { NewCategoryComponent } from '../new-category/new-category.component';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  isAdmin : any
 
   constructor(private categoryService:CategoryService , public dialog: MatDialog, 
-    private snackBar:MatSnackBar) { }
+    private snackBar:MatSnackBar , private util:UtilService) { }
 
   ngOnInit(): void {
     this.getCategories()  
+    this.isAdmin = this.util.isAdmin();
   }
 
     displayedColumns:string[]=['id','descripcion','name','actions']

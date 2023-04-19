@@ -123,6 +123,19 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  exportExcelProducts() {
+    this.productServices.ExportProducts()
+    .subscribe((data:any) =>{
+        let file = new Blob([],{type : 'application/vpn.openxmlformats-officedcument.spreadsheet.sheet'})
+        let fileurl = URL.createObjectURL(file);
+        var anchor = document.createElement("a")
+        anchor.download = "products.odt"
+        anchor.href = fileurl
+        anchor.click();
+        this.openSnackBar("Se descargo con exito el archivo","Exito");
+    })
+  }
+
 
 
 

@@ -39,4 +39,12 @@ export class CategoryService {
     return this.http.get(EndPoint);
 
   }
+
+  ExportCategories(){
+    const EndPoint = `${url_base}/categories/exportexcel`;
+    return this.http.get(EndPoint , {
+      responseType:'blob' 
+    });
+
+  }
 }

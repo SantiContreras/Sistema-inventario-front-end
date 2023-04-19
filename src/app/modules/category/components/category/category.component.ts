@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginatedTabHeader } from '@angular/material/tabs/paginated-tab-header';
+
 import { Observable } from 'rxjs';
 import { ConfirmComponent } from 'src/app/modules/shared/components/confirm/confirm.component';
 import { CategoryService } from 'src/app/modules/shared/services/category.service';
@@ -121,6 +122,19 @@ export class CategoryComponent implements OnInit {
             .subscribe( (resp: any) => {
               this.processCategoriesResponse(resp);
             })
+  }
+
+  exportExcel() {
+    this.categoryService.ExportCategories()
+    .subscribe((data:any) =>{
+        let file = new Blob([],{type : 'application/vpn.openxmlformats-officedcument.spreadsheet.sheet'})
+        let fileurl = URL.createObjectURL(file);
+        var anchor = document.createElement("a")
+        anchor.download = "categories.xlsx"
+        anchor.href = fileurl
+        anchor.click();
+        this.openSnackBar("Se descargo con exito el archivo","Exito");
+    })
   }
 
 }
